@@ -39,4 +39,5 @@ dependencies {
   implementation "org.hibernate:hibernate-core:$hibernateVersion"
   implementation "org.hibernate:hibernate-c3p0:$hibernateVersion"
   implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+  implementation 'commons-httpclient:commons-httpclient:3.1'
 }

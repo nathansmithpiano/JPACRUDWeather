@@ -7,6 +7,7 @@
     </provider>
     
     <class>com.skilldistillery.jpacrudweather.entities.Point</class>
+    <!-- <class>com.skilldistillery.jpacrudweather.entities.WeatherPoint</class> -->
 
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/weatherpointdb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=US/Mountain" />
