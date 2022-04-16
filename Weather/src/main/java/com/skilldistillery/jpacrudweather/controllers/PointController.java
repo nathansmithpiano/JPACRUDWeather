@@ -4,8 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.jpacrudweather.data.PointDAO;
+import com.skilldistillery.jpacrudweather.entities.Point;
 
 @Controller
 public class PointController {
@@ -13,10 +17,19 @@ public class PointController {
 	@Autowired
 	private PointDAO dao;
 	
-	@RequestMapping(path={"/", "home.do"})
-	public String home(Model model) {
-		model.addAttribute("DEBUG", dao.findById(1));
-		return "home";
+	@RequestMapping(path="loc-all")
+	public String getAllLocPoints(Model model) {
+		model.addAttribute("list", dao.findAll());
+		return "loc_all";
+	}
+	
+	@RequestMapping(path="loc-single.do", method = RequestMethod.GET)
+	public ModelAndView getLocPoint(@RequestParam("id") int id) {
+		ModelAndView mv = new ModelAndView();
+		Point point = dao.findById(id);
+		mv.addObject("point", point);
+		mv.setViewName("loc_single");
+		return mv;
 	}
 
 }
