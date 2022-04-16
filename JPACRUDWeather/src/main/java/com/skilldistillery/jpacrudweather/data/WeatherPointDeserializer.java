@@ -69,7 +69,6 @@ public class WeatherPointDeserializer extends StdDeserializer<WeatherPoint> {
     			.get("bearing")
     			.get("value").asInt());
         	
-        System.out.println(wp);
         return wp;
     }
 }
