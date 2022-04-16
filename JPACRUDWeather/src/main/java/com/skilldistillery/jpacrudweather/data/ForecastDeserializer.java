@@ -2,8 +2,6 @@ package com.skilldistillery.jpacrudweather.data;
 
 import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
@@ -12,6 +10,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import com.skilldistillery.jpacrudweather.entities.Forecast;
+import com.skilldistillery.jpacrudweather.entities.Period;
 
 public class ForecastDeserializer extends StdDeserializer<Forecast> {
 	
@@ -50,8 +49,11 @@ public class ForecastDeserializer extends StdDeserializer<Forecast> {
         fc.setNumPeriods(pn.get("periods").size());
         
         JsonNode periods = pn.get("periods");
+        PeriodDeserializer pds = new PeriodDeserializer();
         for (JsonNode subnode : periods) {
-        	System.out.println(subnode.get("number").asText());
+        	Period period = new Period();
+        	period = pds.deserialize(subnode);
+        	System.out.println(period);
         }
 		
 		return fc;

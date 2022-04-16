@@ -64,29 +64,6 @@ public class Period {
 	}
 	public void setWindSpeed(String windSpeed) {
 		this.windSpeed = windSpeed;
-		String temp = windSpeed;
-		Integer min = null;
-		Integer max = null;
-		if (temp.contains("to")) {
-			String[] arr = temp.split("to");
-			arr[0] = arr[0].trim();
-			if (arr[1].contains("mph")) {
-				String[] arr2 = arr[1].split("mph");
-				try {
-					min = Integer.parseInt(arr2[0].trim());
-				} catch (Exception e) {
-					System.err.println("Period windspeed min/max formatting error");
-					e.printStackTrace();
-				}
-			}
-			try {
-				max = Integer.parseInt(arr[0]);
-			} catch (Exception e) {
-				System.err.println("Period windspeed min/max formatting error");
-				e.printStackTrace();
-			}
-		}
-		
 	}
 	public Integer getWindMin() {
 		return windMin;

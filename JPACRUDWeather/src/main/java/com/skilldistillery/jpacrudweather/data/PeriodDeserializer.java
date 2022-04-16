@@ -1,42 +1,14 @@
 package com.skilldistillery.jpacrudweather.data;
 
-import java.io.IOException;
 import java.time.OffsetDateTime;
 
-import com.fasterxml.jackson.core.JacksonException;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.ObjectCodec;
-import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import com.skilldistillery.jpacrudweather.entities.Forecast;
 import com.skilldistillery.jpacrudweather.entities.Period;
 
-public class PeriodDeserializer extends StdDeserializer<Period> {
+public class PeriodDeserializer  {
 	
-	//Is this necessary?
-    private static final long serialVersionUID = 1L;
-
-	public PeriodDeserializer() {
-        this(null);
-    }
-
-    public PeriodDeserializer(Class<?> vc) {
-        super(vc);
-    }
-    
-    @Override
-	public Period deserialize(JsonParser parser, DeserializationContext deserializer) {
+	public Period deserialize(JsonNode node) {
 		Period pd = new Period();
-		ObjectCodec codec = parser.getCodec();
-        JsonNode node = null;
-        try {
-			node = codec.readTree(parser);
-		} catch (JacksonException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} 
 		
         node.get("properties");
         
@@ -54,6 +26,32 @@ public class PeriodDeserializer extends StdDeserializer<Period> {
         pd.setIconUrl(node.get("icon").asText());
         pd.setIconUrl(node.get("shortForecast").asText());
         pd.setDetailedForecast(node.get("detailedForecast").asText());
+        
+		String temp = pd.getWindSpeed();
+		String[] arr;
+		if (temp.contains("to")) {
+			arr = temp.split("to");
+			
+			try {
+				temp = arr[0].trim();
+				pd.setWindMin(Integer.parseInt(temp.toString()));
+				temp = arr[1].trim();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		if (temp.contains("mph")) {
+			arr = temp.split("mph");
+			
+			
+			try {
+				temp = arr[0].trim();
+				pd.setWindMax(Integer.parseInt(temp.toString()));
+			} catch (Exception e) {
+				System.err.println("Period windspeed min/max formatting error");
+				e.printStackTrace();
+			}
+		}
 		
 		return pd;
 	}
