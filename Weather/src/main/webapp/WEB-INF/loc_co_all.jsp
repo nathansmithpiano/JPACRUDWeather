@@ -20,7 +20,7 @@
 			<h1>Colorado 13ers/14ers</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="index">Home</a></li>
+					<li class="breadcrumb-item"><a href="index"><i class="bi bi-house-door"></i></a></li>
 					<li class="breadcrumb-item">Locations</li>
 					<li class="breadcrumb-item active">Colorado 13ers/14ers</li>
 				</ol>
@@ -28,21 +28,24 @@
 		</div>
 		<!-- End Page Title with Breadcrumbs -->
 
+		<section class="section">
+	      <div class="row">
+	        <div class="col-lg-12">
+	
+	          <jsp:include page="loc_table.jsp" />
+	
+	        </div>
+	      </div>
+	    </section>
+	    
+		
 	</main>
-
-
-
-
-
-
-
-
-
 
 
 	<jsp:include page="main_scripts.jsp" />
 	<script>
 		document.getElementById("locations-nav").className = "nav-content collapse show";
+		document.getElementById("loc-coAll-nav").className = "active";
 	</script>
 </body>
 </html>

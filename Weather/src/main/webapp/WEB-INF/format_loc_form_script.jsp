@@ -70,15 +70,14 @@
 	  return /^[0-9a-f]*$/i.test(value); }, "Must use hexadecimal characters"); */
 	  
 	//Other Category stuff adapted from https://stackoverflow.com/questions/1228504/how-can-i-add-an-other-text-input-to-a-set-of-radio-buttons-in-an-html-form
-	//DISABLED - difficulty implementing with object mapping via Spring
-	/* function otherCategory() {
-		a=document.getElementById('other_category');
+	function newCategory() {
+		a=document.getElementById('new_category');
 		a.checked=true;
 	}
 	function regularCategory() {
-		a=document.getElementById('other_category');
+		a=document.getElementById('new_category');
 		a.value="";
-	} */
+	}
 	
 
 </script>

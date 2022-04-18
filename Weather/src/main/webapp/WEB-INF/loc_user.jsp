@@ -28,21 +28,24 @@
 		</div>
 		<!-- End Page Title with Breadcrumbs -->
 
+		<section class="section">
+	      <div class="row">
+	        <div class="col-lg-12">
+	
+	          <jsp:include page="loc_table.jsp" />
+	
+	        </div>
+	      </div>
+	    </section>
+	    
+		
 	</main>
-
-
-
-
-
-
-
-
-
 
 
 	<jsp:include page="main_scripts.jsp" />
 	<script>
 		document.getElementById("locations-nav").className = "nav-content collapse show";
+		document.getElementById("loc-user-nav").className = "active";
 	</script>
 </body>
 </html>

@@ -4,9 +4,9 @@
   <ul class="sidebar-nav" id="sidebar-nav">
 
     <li class="nav-item">
-      <a class="nav-link " href="index">
+      <a class="nav-link collapsed" href="index" id="home-nav">
         <i class="bi bi-grid"></i>
-        <span>Dashboard</span>
+        <span>Home</span>
       </a>
     </li><!-- End Dashboard Nav -->
 
@@ -16,33 +16,33 @@
       </a>
       <ul id="locations-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="loc-co14ers">
+          <a href="loc-co14ers" id="loc-co14ers-nav">
             <i class="bi bi-circle"></i><span>Colorado 14ers</span>
           </a>
         </li>
         <li>
-          <a href="loc-co13ers">
+          <a href="loc-co13ers" id="loc-co13ers-nav">
             <i class="bi bi-circle"></i><span>Colorado 13ers</span>
           </a>
         </li>
         <li>
-          <a href="loc-coAll">
+          <a href="loc-coAll" id="loc-coAll-nav">
             <i class="bi bi-circle"></i><span>All CO 13ers/14ers</span>
           </a>
         </li>
         <li>
-          <a href="loc-other">
-            <i class="bi bi-circle"></i><span>Other</span>
-          </a>
-        </li>
-        <li>
-          <a href="loc-user">
+          <a href="loc-user" id="loc-user-nav">
             <i class="bi bi-circle"></i><span>User Created</span>
           </a>
         </li>
         <li>
-          <a href="loc-all">
+          <a href="loc-all" id="loc-all-nav">
             <i class="bi bi-circle"></i><span>All Locations</span>
+          </a>
+        </li>
+        <li>
+          <a href="loc-add" id="loc-add-nav">
+            <i class="bi bi-circle"></i><span>Add Location</span>
           </a>
         </li>
       </ul>
@@ -77,25 +77,7 @@
       </ul>
     </li><!-- End Forms Nav -->
 
-    <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#addremove-nav" data-bs-toggle="collapse" href="#">
-        <i class="ri-tools-line"></i><span>Add/Remove</span><i class="bi bi-chevron-down ms-auto"></i>
-      </a>
-      <ul id="addremove-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="loc-add">
-            <i class="bi bi-circle"></i><span>Add Location</span>
-          </a>
-        </li>
-        <li>
-          <a href="loc-remove">
-            <i class="bi bi-circle"></i><span>Remove Location</span>
-          </a>
-        </li>
-      </ul>
-    </li><!-- End AddRemove Nav -->
-
-    <li class="nav-item">
+   <!--  <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
         <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
@@ -116,7 +98,7 @@
           </a>
         </li>
       </ul>
-    </li><!-- End Charts Nav -->
+    </li>End Charts Nav
 
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
@@ -139,7 +121,7 @@
           </a>
         </li>
       </ul>
-    </li><!-- End Icons Nav -->
+    </li>End Icons Nav
 
     <li class="nav-heading">Pages</li>
 
@@ -148,49 +130,49 @@
         <i class="bi bi-person"></i>
         <span>Profile</span>
       </a>
-    </li><!-- End Profile Page Nav -->
+    </li>End Profile Page Nav
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="pages-faq.html">
         <i class="bi bi-question-circle"></i>
         <span>F.A.Q</span>
       </a>
-    </li><!-- End F.A.Q Page Nav -->
+    </li>End F.A.Q Page Nav
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="pages-contact.html">
         <i class="bi bi-envelope"></i>
         <span>Contact</span>
       </a>
-    </li><!-- End Contact Page Nav -->
+    </li>End Contact Page Nav
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="pages-register.html">
         <i class="bi bi-card-list"></i>
         <span>Register</span>
       </a>
-    </li><!-- End Register Page Nav -->
+    </li>End Register Page Nav
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="pages-login.html">
         <i class="bi bi-box-arrow-in-right"></i>
         <span>Login</span>
       </a>
-    </li><!-- End Login Page Nav -->
+    </li>End Login Page Nav
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="pages-error-404.html">
         <i class="bi bi-dash-circle"></i>
         <span>Error 404</span>
       </a>
-    </li><!-- End Error 404 Page Nav -->
+    </li>End Error 404 Page Nav
 
     <li class="nav-item">
       <a class="nav-link collapsed" href="pages-blank.html">
         <i class="bi bi-file-earmark"></i>
         <span>Blank</span>
       </a>
-    </li><!-- End Blank Page Nav -->
+    </li>End Blank Page Nav -->
 
   </ul>
 

@@ -6,52 +6,43 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
+import com.skilldistillery.jpacrudweather.data.CategoryDAO;
 import com.skilldistillery.jpacrudweather.data.PointDAO;
+import com.skilldistillery.jpacrudweather.entities.Category;
 import com.skilldistillery.jpacrudweather.entities.Point;
 
 @Controller
 public class PointController {
 	
 	@Autowired
-	private PointDAO dao;
+	private PointDAO pointDAO;
 	
-	@RequestMapping(path="loc-all")
-	public String getAllLocPoints(Model model) {
-		model.addAttribute("list", dao.findAll());
-		return "loc_all";
-	}
-	
-	@RequestMapping(path="loc-single.do", method = RequestMethod.GET)
-	public ModelAndView getLocPoint(@RequestParam("id") int id) {
-		ModelAndView mv = new ModelAndView();
-		Point point = dao.findById(id);
-		mv.addObject("point", point);
-		mv.setViewName("loc_single");
-		return mv;
-	}
-	
-//	@RequestMapping(path="add-location.do", method = RequestMethod.POST)
-//	public String addLocation(@RequestParam(name = "name") String name,
-//									@RequestParam Integer category,
-//									@RequestParam Double latitude,
-//									@RequestParam Double longitude,
-//									@RequestParam Integer elevation) {
-//		int newId = 4;
-//		System.out.println(name);
-//		int newId = dao.addPoint(point);
-//		boolean isAdded = (newId != -1);
-		
-		
-//		return "redirect:/loc-single.do?id=" + newId;
-//	}
+	@Autowired
+	private CategoryDAO catDAO;
 	
 	@RequestMapping(path="add-location.do", method = RequestMethod.POST)
-	public String addLocation(Model model, Point point) {
-		int newId = dao.addPoint(point);
-//		boolean isAdded = (newId != -1); for verifying if successful or not
-		return "redirect:/loc-single.do?id=" + newId;
+	public String addLocation(Model model, Point point, @RequestParam("new_cat_text") String newCatName) {
+		//add new category
+		if (point.getCategoryId() == -1) {
+			Category newCat = new Category();
+			newCat.setName(newCatName);
+			int newCatId = catDAO.addCategory(newCat);
+			point.setCategoryId(newCatId);
+		}
+		
+		System.out.println("*** RANGE ID: " + point.getRangeId());
+		
+		//TODO: add range stuff like category
+		
+		int newId = pointDAO.addPoint(point);
+		return "redirect:/loc?id=" + newId;
+	}
+	
+	@RequestMapping(path="update-location.do", method = RequestMethod.POST)
+	public String updateLocation(Model model, Point point) {
+		pointDAO.updatePoint(point.getId(), point);
+		return "redirect:/loc?id=" + point.getId();
 	}
 	
 }

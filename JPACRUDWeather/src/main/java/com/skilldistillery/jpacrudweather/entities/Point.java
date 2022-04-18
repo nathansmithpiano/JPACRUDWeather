@@ -18,9 +18,7 @@ public class Point {
 	private Double latitude;
 	private Double longitude;
 	private Integer elevation;
-
-	@Column(name = "mountain_range")
-	private String mountainRange;
+	private Integer rangeId;
 
 	@Column(name = "id_url")
 	private String idUrl;
@@ -76,11 +74,11 @@ public class Point {
 		this.name = name;
 	}
 
-	public Integer getCategory() {
+	public Integer getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategory(Integer category) {
+	public void setCategoryId(Integer category) {
 		this.categoryId = category;
 	}
 
@@ -107,13 +105,13 @@ public class Point {
 	public void setElevation(Integer elevation) {
 		this.elevation = elevation;
 	}
-
-	public String getMountainRange() {
-		return mountainRange;
+	
+	public Integer getRangeId() {
+		return rangeId;
 	}
 
-	public void setMountainRange(String mountainRange) {
-		this.mountainRange = mountainRange;
+	public void setRangeId(Integer rangeId) {
+		this.rangeId = rangeId;
 	}
 
 	public String getIdUrl() {
@@ -223,11 +221,11 @@ public class Point {
 	@Override
 	public String toString() {
 		return "Point\nid=" + id + "\nname=" + name + "\ncategoryId=" + categoryId + "\nlatitude=" + latitude
-				+ "\nlongitude=" + longitude + "\nelevation=" + elevation + "\nmountainRange=" + mountainRange
-				+ "\nidUrl=" + idUrl + "\ncwa=" + cwa + "\ngridId=" + gridId + "\ngridX=" + gridX + "\ngridY=" + gridY
-				+ "\nforecastUrl=" + forecastUrl + "\nforecastHourly=" + forecastHourly + "\nrLatitude=" + rLatitude
-				+ "\nrLongitude=" + rLongitude + "\nrCity=" + rCity + "\nrState=" + rState + "\nrDistance=" + rDistance
-				+ "\nrBearing=" + rBearing;
+				+ "\nlongitude=" + longitude + "\nelevation=" + elevation + "\nrangeId=" + rangeId + "\nidUrl=" + idUrl
+				+ "\ncwa=" + cwa + "\ngridId=" + gridId + "\ngridX=" + gridX + "\ngridY=" + gridY + "\nforecastUrl="
+				+ forecastUrl + "\nforecastHourly=" + forecastHourly + "\nrLatitude=" + rLatitude + "\nrLongitude="
+				+ rLongitude + "\nrCity=" + rCity + "\nrState=" + rState + "\nrDistance=" + rDistance + "\nrBearing="
+				+ rBearing;
 	}
-	
+
 }

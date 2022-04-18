@@ -1,11 +1,15 @@
 package com.skilldistillery.jpacrudweather.data;
 
-import java.util.List;
+import java.util.Map;
 
 import com.skilldistillery.jpacrudweather.entities.Category;
 
 public interface CategoryDAO {
 	
-	public List<Category> findAll();
+	public Category findById(int id); 
+	public Map<Integer, Category> findAll();
+	public int addCategory(Category category);
+	public Category updateCategory(int id, Category category);
+	public void removeCategory(Category category);
 
 }
