@@ -36,4 +36,9 @@ public class LinkController {
 		return "loc_user";
 	}
 	
+	@RequestMapping(path={"loc-remove"})
+	public String removeLocation() {
+		return "loc_remove";
+	}
+	
 }

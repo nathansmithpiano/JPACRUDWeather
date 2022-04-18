@@ -31,5 +31,27 @@ public class PointController {
 		mv.setViewName("loc_single");
 		return mv;
 	}
-
+	
+//	@RequestMapping(path="add-location.do", method = RequestMethod.POST)
+//	public String addLocation(@RequestParam(name = "name") String name,
+//									@RequestParam Integer category,
+//									@RequestParam Double latitude,
+//									@RequestParam Double longitude,
+//									@RequestParam Integer elevation) {
+//		int newId = 4;
+//		System.out.println(name);
+//		int newId = dao.addPoint(point);
+//		boolean isAdded = (newId != -1);
+		
+		
+//		return "redirect:/loc-single.do?id=" + newId;
+//	}
+	
+	@RequestMapping(path="add-location.do", method = RequestMethod.POST)
+	public String addLocation(Model model, Point point) {
+		int newId = dao.addPoint(point);
+//		boolean isAdded = (newId != -1); for verifying if successful or not
+		return "redirect:/loc-single.do?id=" + newId;
+	}
+	
 }

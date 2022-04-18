@@ -43,10 +43,11 @@
                 <thead>
                   <tr>
                     <!-- <th scope="col">id</th> -->
+                    <th></th>
                     <th scope="col">Name</th>
                     <th scope="col">Category</th>
-                    <th scope="col">Latitude</th>
-                    <th scope="col">Longitude</th>
+                    <!-- <th scope="col">Latitude</th> -->
+                    <!-- <th scope="col">Longitude</th> -->
                     <th scope="col">Elevation</th>
                     <th scope="col">Range</th>
                   </tr>
@@ -54,13 +55,17 @@
                 <tbody>
                   <c:forEach items="${list }" var="point">
                   	<tr>
-                  		<%-- <th scope="row">${point.id }</th> --%>
-                  		<th scope="row">
-                  			<a href="loc-single.do?id=${point.id }">${point.name }</a>
-                  		</th>
+                  		<td>
+                  			<a href="loc-single.do?id=${point.id }">
+                  				<button class="btn btn-info rounded-pill btn-sm">
+                  					view
+                  				</button>
+                  			</a>
+                 		</td>
+                  		<th scope="row">${point.name }</th>
                   		<td>${point.category }</td>
-                  		<td>${point.latitude }</td>
-                  		<td>${point.longitude }</td>
+                  		<%-- <td>${point.latitude }</td> --%>
+                  		<%-- <td>${point.longitude }</td> --%>
                   		<td><fmt:formatNumber type="number" value="${ point.elevation }" />'</td>
                   		<td>${point.mountainRange }</td>
                   	</tr>

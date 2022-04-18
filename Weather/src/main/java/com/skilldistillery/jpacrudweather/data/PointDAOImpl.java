@@ -3,6 +3,8 @@ package com.skilldistillery.jpacrudweather.data;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
@@ -28,6 +30,12 @@ public class PointDAOImpl implements PointDAO {
 		List<Point> results = em.createQuery(query, Point.class).getResultList();
 		return results;
 	}
-	
-	
+
+	@Override
+	public int addPoint(Point point) {
+		em.persist(point);
+		em.flush();
+		return point.getId();
+	}
+
 }

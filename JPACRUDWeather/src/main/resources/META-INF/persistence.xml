@@ -7,6 +7,7 @@
     </provider>
     
     <class>com.skilldistillery.jpacrudweather.entities.Point</class>
+    <class>com.skilldistillery.jpacrudweather.entities.Category</class>
     <!-- <class>com.skilldistillery.jpacrudweather.entities.WeatherPoint</class> -->
 
     <properties>

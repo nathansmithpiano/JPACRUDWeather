@@ -3,3 +3,8 @@
 thead input {
 	width: 100%;
 }
+
+/* for elevation formatting script */
+/* .input-error{
+    outline: 1px solid red;
+} */

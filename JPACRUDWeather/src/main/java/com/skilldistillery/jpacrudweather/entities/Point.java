@@ -9,13 +9,12 @@ import javax.persistence.Id;
 @Entity
 public class Point {
 
-	// Exists in initial database
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private String name;
-	private String category;
+	private Integer categoryId;
 	private Double latitude;
 	private Double longitude;
 	private Integer elevation;
@@ -77,12 +76,12 @@ public class Point {
 		this.name = name;
 	}
 
-	public String getCategory() {
-		return category;
+	public Integer getCategory() {
+		return categoryId;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
+	public void setCategory(Integer category) {
+		this.categoryId = category;
 	}
 
 	public Double getLatitude() {
@@ -223,12 +222,12 @@ public class Point {
 
 	@Override
 	public String toString() {
-		return "Point [id=" + id + ", name=" + name + ", category=" + category + ", latitude=" + latitude
-				+ ", longitude=" + longitude + ", elevation=" + elevation + ", mountainRange=" + mountainRange
-				+ ", idUrl=" + idUrl + ", cwa=" + cwa + ", gridId=" + gridId + ", gridX=" + gridX + ", gridY=" + gridY
-				+ ", forecastUrl=" + forecastUrl + ", forecastHourly=" + forecastHourly + ", rLatitude=" + rLatitude
-				+ ", rLongitude=" + rLongitude + ", rCity=" + rCity + ", rState=" + rState + ", rDistance=" + rDistance
-				+ ", rBearing=" + rBearing + "]";
+		return "Point\nid=" + id + "\nname=" + name + "\ncategoryId=" + categoryId + "\nlatitude=" + latitude
+				+ "\nlongitude=" + longitude + "\nelevation=" + elevation + "\nmountainRange=" + mountainRange
+				+ "\nidUrl=" + idUrl + "\ncwa=" + cwa + "\ngridId=" + gridId + "\ngridX=" + gridX + "\ngridY=" + gridY
+				+ "\nforecastUrl=" + forecastUrl + "\nforecastHourly=" + forecastHourly + "\nrLatitude=" + rLatitude
+				+ "\nrLongitude=" + rLongitude + "\nrCity=" + rCity + "\nrState=" + rState + "\nrDistance=" + rDistance
+				+ "\nrBearing=" + rBearing;
 	}
-
+	
 }

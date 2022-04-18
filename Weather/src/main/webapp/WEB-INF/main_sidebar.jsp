@@ -12,7 +12,7 @@
 
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#locations-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-geo-alt"></i><span>Locations</span><i class="bi bi-chevron-down ms-auto"></i>
+        <i class="ri-map-pin-line"></i><span>Locations</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="locations-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
@@ -50,7 +50,8 @@
 
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+        <!-- <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i> -->
+        <i class="ri-sun-cloudy-line"></i><span>Weather</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
@@ -77,22 +78,22 @@
     </li><!-- End Forms Nav -->
 
     <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
+      <a class="nav-link collapsed" data-bs-target="#addremove-nav" data-bs-toggle="collapse" href="#">
+        <i class="ri-tools-line"></i><span>Add/Remove</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
-      <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+      <ul id="addremove-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
         <li>
-          <a href="tables-general.html">
-            <i class="bi bi-circle"></i><span>General Tables</span>
+          <a href="loc-add">
+            <i class="bi bi-circle"></i><span>Add Location</span>
           </a>
         </li>
         <li>
-          <a href="tables-data.html">
-            <i class="bi bi-circle"></i><span>Data Tables</span>
+          <a href="loc-remove">
+            <i class="bi bi-circle"></i><span>Remove Location</span>
           </a>
         </li>
       </ul>
-    </li><!-- End Tables Nav -->
+    </li><!-- End AddRemove Nav -->
 
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">

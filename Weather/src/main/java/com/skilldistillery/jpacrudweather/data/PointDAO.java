@@ -8,5 +8,6 @@ public interface PointDAO {
 	
 	public Point findById(int id);
 	public List<Point> findAll();
+	public int addPoint(Point point);
 
 }
