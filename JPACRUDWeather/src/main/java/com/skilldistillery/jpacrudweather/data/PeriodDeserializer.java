@@ -1,6 +1,10 @@
 package com.skilldistillery.jpacrudweather.data;
 
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.skilldistillery.jpacrudweather.entities.Period;
@@ -24,33 +28,30 @@ public class PeriodDeserializer  {
         pd.setWindSpeed(node.get("windSpeed").asText());
         pd.setWindDirection(node.get("windDirection").asText());
         pd.setIconUrl(node.get("icon").asText());
-        pd.setIconUrl(node.get("shortForecast").asText());
+        pd.setShortForecast(node.get("shortForecast").asText());
         pd.setDetailedForecast(node.get("detailedForecast").asText());
         
-		String temp = pd.getWindSpeed();
-		String[] arr;
-		if (temp.contains("to")) {
-			arr = temp.split("to");
-			
-			try {
-				temp = arr[0].trim();
-				pd.setWindMin(Integer.parseInt(temp.toString()));
-				temp = arr[1].trim();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		if (temp.contains("mph")) {
-			arr = temp.split("mph");
-			
-			
-			try {
-				temp = arr[0].trim();
-				pd.setWindMax(Integer.parseInt(temp.toString()));
-			} catch (Exception e) {
-				System.err.println("Period windspeed min/max formatting error");
-				e.printStackTrace();
-			}
+        List<Integer> windSpeeds = new ArrayList<Integer>();
+        Matcher m = Pattern.compile("\\d+")
+        	     .matcher(pd.getWindSpeed());
+        
+        while (m.find()) {
+        	try {
+        		windSpeeds.add(Integer.parseInt(m.group()));
+        	} catch (NumberFormatException e) {
+        		System.err.println("PeriodDeserializer - Cannot parse windspeed string to Integer");
+        		e.printStackTrace();
+        	}
+        }
+        
+		if (windSpeeds.size() == 1) {
+			pd.setWindMin(windSpeeds.get(0));
+			pd.setWindMax(windSpeeds.get(0));
+		} else if (windSpeeds.size() == 2) {
+			pd.setWindMin(windSpeeds.get(0));
+			pd.setWindMax(windSpeeds.get(1));
+		} else {
+			System.err.println("Period windspeed min/max formatting error - not 1 or 2 numbers in API windspeed string");
 		}
 		
 		return pd;

@@ -2,6 +2,8 @@
 
   -- Developed for Skill Distillery Bootcamp Cohort 32 --
 
+  View this project deployed on AWS: http://52.52.235.108:8080/Weather
+
 ### Description
 
   This project is the (hopefully) first rendition of a (hopefully) ongoing project. Using a web browser, a user can perform basic CRUD operations on a database containing names, elevations, and GPS coordinates for all 13er/14er summits in Colorado.  A user can view peaks in various tables, sort, search the tables, and view information for one specific location.  They can update the details for that location and the database will save their update.  They can also remove a location and have the option to add it back, though with a different ID as database auto-increments beginning with 828 (there are 827 peaks initially in the database).  A user can also create their own categories of locations.

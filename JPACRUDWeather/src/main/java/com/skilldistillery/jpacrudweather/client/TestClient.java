@@ -2,6 +2,7 @@ package com.skilldistillery.jpacrudweather.client;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.OffsetDateTime;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -57,7 +58,12 @@ public class TestClient {
 			e.printStackTrace();
 		}
 		
-		System.out.println(fc);
+		System.out.println("***** FORECAST from testForecast() *****");
+		OffsetDateTime upd = fc.getUpdated();
+		OffsetDateTime now = OffsetDateTime.now();
+		System.out.println("Now ODT: " + now);
+		System.out.println(fc.getUpdated());
+		System.out.println("****************************************");
 	}
 	
 	private void testWeatherPoint() {
@@ -81,7 +87,9 @@ public class TestClient {
 			e.printStackTrace();
 		}
 		
+		System.out.println("***** WeatherPoint from testWeatherPoint() *****");
 		System.out.println(wp);
+		System.out.println("************************************************");
 	}
 	
 	

@@ -53,7 +53,9 @@ public class ForecastDeserializer extends StdDeserializer<Forecast> {
         for (JsonNode subnode : periods) {
         	Period period = new Period();
         	period = pds.deserialize(subnode);
+        	System.out.println("***** period from ForecastDeserializer.period() *****");
         	System.out.println(period);
+        	System.out.println("*****************************************************");
         }
 		
 		return fc;

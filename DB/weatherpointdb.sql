@@ -953,8 +953,8 @@ UNLOCK TABLES;
 
 
 DROP USER IF EXISTS 'weather'@'localhost';
-CREATE USER 'weather'@'localhost';
-SET PASSWORD FOR 'weather'@'localhost' = 'password';
+CREATE USER 'weather'@'localhost' identified by 'password';
+-- SET PASSWORD FOR 'weather'@'localhost' = 'password';
 GRANT INSERT, UPDATE, DELETE, SELECT on point TO 'weather'@'localhost';
 GRANT INSERT, UPDATE, DELETE, SELECT on category TO 'weather'@'localhost';
 GRANT INSERT, UPDATE, DELETE, SELECT on mountain_range TO 'weather'@'localhost';
